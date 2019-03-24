@@ -10,7 +10,8 @@ Vagrant.configure("2") do |config|
   # VirtualBox.
   config.vm.define "virtualbox" do |virtualbox|
     virtualbox.vm.hostname = "virtualbox-redhat7"
-    virtualbox.vm.box = "file://builds/virtualbox-redhat7.box"
+    virtualbox.vm.box = "redhat/7"
+    virtualbox.vm.box_url = "file://builds/virtualbox-redhat7.box"
 
     config.vm.provider :virtualbox do |v|
       v.gui = false
