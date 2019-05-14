@@ -21,16 +21,16 @@
       "headless": true,
       "http_directory": "http",
       "iso_urls": [
-        "iso/rhel-server-7.6-x86_64-dvd.iso"
+        "iso/rhel-8.0-x86_64-dvd.iso"
       ],
       "iso_checksum_type": "sha256",
-      "iso_checksum": "60a0be5aeed1f08f2bb7599a578c89ec134b4016cd62a8604b29f15d543a469c",
+      "iso_checksum": "005d4f88fff6d63b0fc01a10822380ef52570edd8834321de7be63002cc6cc43",
       "ssh_username": "vagrant",
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_wait_timeout": "10000s",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
-      "vm_name": "packer-redhat-7-x86_64",
+      "vm_name": "packer-rhel-8-x86_64",
       "vboxmanage": [
         [
           "modifyvm",
@@ -50,7 +50,7 @@
   "post-processors": [
     [
       {
-        "output": "builds/{{.Provider}}-redhat7.box",
+        "output": "builds/{{.Provider}}-rhel8.box",
         "type": "vagrant"
       }
     ]
