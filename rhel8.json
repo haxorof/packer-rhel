@@ -13,7 +13,7 @@
     {
       "type": "virtualbox-iso",
       "boot_command": [
-        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks-8.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 81920,
@@ -50,7 +50,7 @@
   "post-processors": [
     [
       {
-        "output": "builds/{{.Provider}}-rhel8.box",
+        "output": "builds/{{.Provider}}-rhel-8.box",
         "type": "vagrant"
       }
     ]

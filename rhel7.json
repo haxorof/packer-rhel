@@ -50,7 +50,7 @@
   "post-processors": [
     [
       {
-        "output": "builds/{{.Provider}}-rhel7.box",
+        "output": "builds/{{.Provider}}-rhel-7.box",
         "type": "vagrant"
       }
     ]
