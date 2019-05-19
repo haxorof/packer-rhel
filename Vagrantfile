@@ -14,10 +14,16 @@ end
 Vagrant.configure("2") do |config|
   config.ssh.insert_key = false
   # Guest additions not install during packaging
-  config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vagrant.plugins = ["vagrant-proxyconf", "vagrant-registration", "vagrant-vbguest"]
+  #config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.vagrant.plugins = ["vagrant-registration", "vagrant-vbguest"]
 
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.enabled = false
+  end  
+
+  # Require fix: https://github.com/projectatomic/adb-vagrant-registration/pull/127
   if Vagrant.has_plugin?('vagrant-registration')
+    #config.registration.skip = true
     config.registration.name = "packer-rhel"
     if use_activationkey
       config.registration.org = "#{ENV['RHSM_ORG']}" 
