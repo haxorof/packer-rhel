@@ -21,7 +21,6 @@ Vagrant.configure("2") do |config|
     config.proxy.enabled = false
   end  
 
-  # Require fix: https://github.com/projectatomic/adb-vagrant-registration/pull/127
   if Vagrant.has_plugin?('vagrant-registration')
     #config.registration.skip = true
     config.registration.name = "packer-rhel"
