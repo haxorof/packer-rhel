@@ -19,19 +19,19 @@ Vagrant.configure("2") do |config|
 
   if Vagrant.has_plugin?("vagrant-proxyconf")
     config.proxy.enabled = false
-  end  
+  end
 
   if Vagrant.has_plugin?('vagrant-registration')
     #config.registration.skip = true
     config.registration.name = "packer-rhel"
     if use_activationkey
-      config.registration.org = "#{ENV['RHSM_ORG']}" 
+      config.registration.org = "#{ENV['RHSM_ORG']}"
       config.registration.activationkey = "#{ENV['RHSM_ACTIVATIONKEY']}"
     else
-      config.registration.username = "#{ENV['RHSM_USERNAME']}" 
-      config.registration.password = "#{ENV['RHSM_PASSWORD']}" 
+      config.registration.username = "#{ENV['RHSM_USERNAME']}"
+      config.registration.password = "#{ENV['RHSM_PASSWORD']}"
     end
-  end    
+  end
   # VirtualBox.
   config.vm.define "virtualbox" do |virtualbox|
     virtualbox.vm.hostname = "virtualbox-rhel-#{rhel_version}"
